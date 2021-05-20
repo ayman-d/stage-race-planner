@@ -54,7 +54,7 @@ const AddStageRace: React.FC<AddStageRaceProps> = ({
     return () => {
       fetchRaceData();
     };
-  }, [newStageRaceName, newStages]);
+  }, [newStageRaceName, newStages, fetchRaceData]);
 
   return (
     <div>

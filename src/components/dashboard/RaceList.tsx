@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { IStageRace } from "../../types";
 import { getStageRaces, deleteStageRace } from "../../api";
 import { StageRaceListGroupItem } from "../shared/stage-race-list-group";
-import { stringify } from "querystring";
 import {
   LoadingSpinner,
   PrimaryButton,
@@ -124,7 +123,6 @@ const RaceList: React.FC = () => {
             />
           ))}
 
-          {/* change the br */}
           <br />
           <PrimaryButton onClick={() => setModalOpen(true)}>
             Add Stage Race
@@ -134,6 +132,7 @@ const RaceList: React.FC = () => {
               setModalOpen={setModalOpen}
               findDuration={findDuration}
               fetchRaceData={fetchRaceData}
+              setErrorMessage={setErrorMessage}
             />
           </Modal>
         </div>

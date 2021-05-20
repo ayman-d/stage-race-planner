@@ -8,15 +8,17 @@ import { ErrorOverlay } from "../shared";
 import { IStage, IProvisionalStageRace } from "../../types";
 
 interface FormContainertProps {
-  setModalOpen: Function;
-  findDuration: Function;
-  fetchRaceData: Function;
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  findDuration: (dates: string[]) => string;
+  fetchRaceData: () => void;
+  setErrorMessage: (message: string) => void;
 }
 
 const FormContainer: React.FC<FormContainertProps> = ({
   setModalOpen,
   findDuration,
   fetchRaceData,
+  setErrorMessage,
 }) => {
   const stageRaces: IStage[] = [];
 
@@ -48,6 +50,7 @@ const FormContainer: React.FC<FormContainertProps> = ({
       })
       .catch((err) => {
         setError(true);
+        setErrorMessage("Error adding stage race");
       });
   };
 
